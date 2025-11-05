@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday — my sweetie fox</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Audio elements -->
+  <audio id="flipSound" preload="auto">
+    <!-- dedicated flip sound (replace or keep this URL if you want a different sample) -->
+    <source src="https://assets.mixkit.co/active_storage/sfx/385/385-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="sparkleSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/1184/1184-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="heartSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2/2-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="successSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="clickSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/2572/2572-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="magicSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/143/143-preview.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="loveSound" preload="auto">
+    <source src="https://assets.mixkit.co/active_storage/sfx/1419/1419-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="stage">
+    <header class="header">
+      <h1>Happy Birthday, <span class="name">my sweetie fox</span> 🎉</h1>
+      <p class="subtitle">my hottie girl — this one's for you</p>
+    </header>
+
+    <main class="card">
+      <div class="fox-image" id="foxContainer">
+        <div class="card-flip">
+          <div class="card-front">
+            <div class="emoji-cake" role="img" aria-label="birthday cake">🎂</div>
+          </div>
+          <div class="card-back">
+            <div class="secret-message">
+              <p>In you, I found my favorite place to be.</p>
+              <p>Your smile feels like home to my heart.</p>
+              <p>Happy Birthday, my love — I’m lucky to have you. �</p>
+            </div>
+          </div>
+        </div>
+        <div class="sparkles"></div>
+      </div>
+      
+      <div class="message">
+        <p class="big">i love u my honey my sweet heart</p>
+        <p class="big">i love love love uuu ❤️</p>
+        <p class="big">my hottie girl, happy birthday 💜</p>
+      </div>
+
+      <div class="actions">
+        <button id="surpriseBtn" class="btn">Show Surprise</button>
+        <button id="playHearts" class="btn alt">Play Hearts</button>
+        <button id="toggleFlip" class="btn magic">✨ Magic Flip ✨</button>
+      </div>
+
+      <div id="surprise" class="surprise hidden">
+        <h2>For you, my love</h2>
+        <p>Happy Birthday to the one who makes my days brighter,<br>
+        My smiles wider, and my heart softer.<br>
+        I'm grateful for you, today and always. 🌸💗</p>
+      </div>
+    </main>
+
+    <div id="hearts"></div>
+    <footer class="footer">Made with love 💜</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

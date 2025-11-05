@@ -1,0 +1,212 @@
+:root{
+  --bg1:#0b0b0b; /* near black */
+  --bg2:#2b0030; /* deep purple */
+  --accent:#b287ff; /* soft purple */
+  --muted:#cfc8d8;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: radial-gradient(ellipse at top left, rgba(128,0,128,0.15), transparent), linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:var(--muted);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px;
+}
+.stage{width:100%;max-width:920px}
+.header{text-align:center;margin-bottom:18px}
+.header h1{font-size:2.2rem;margin:0;color:var(--accent);text-shadow:0 2px 10px rgba(75,0,130,0.5)}
+.header .name{font-weight:800}
+.subtitle{opacity:0.9}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.04);
+  padding:28px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+
+.fox-image {
+  text-align: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative; /* allow sparkles to position inside the image area */
+}
+
+.cake-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: transform 0.5s ease;
+  animation: slideIn 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+.cake-image:hover {
+  transform: scale(1.02) rotate(1deg);
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+.message{display:flex;flex-direction:column;gap:8px;align-items:center}
+.big{font-size:1.2rem;margin:6px 0;color:#fff;text-align:center}
+.actions{display:flex;gap:12px;justify-content:center;margin-top:18px}
+.btn{background:linear-gradient(90deg,var(--accent),#8a2be2);color:#0b0b0b;border:none;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(138,43,226,0.18)}
+.btn.alt{background:transparent;border:2px solid var(--accent);color:var(--accent)}
+.btn:active{transform:translateY(1px)}
+.surprise{margin-top:18px;padding:14px;border-radius:10px;background:linear-gradient(90deg, rgba(178,137,255,0.08), rgba(128,0,128,0.03));text-align:center;border:1px solid rgba(178,137,255,0.08)}
+.hidden{display:none}
+.footer{text-align:center;opacity:0.7;margin-top:14px}
+
+/* Card flip animation */
+.card-flip {
+  perspective: 1000px;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-flip.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-flip {
+  /* make the flip container size to its content (the image) */
+  display: block;
+  max-width: 520px; /* limit width so image has a proper visible area */
+  margin: 0 auto; /* center the flip card */
+  line-height: 0; /* remove extra whitespace */
+  min-height: 260px; /* reserve vertical space so image area stays visible */
+}
+
+.card-front {
+  position: relative; /* keep image in normal flow so parent gets height */
+  backface-visibility: hidden;
+}
+
+.card-front img { display:block; width:100%; height:auto; border-radius:12px; }
+
+/* ensure the cake has visible spacing when surprise toggles */
+.fox-image .card-flip { padding: 8px 0; }
+ 
+.cake-image.placeholder { opacity:1 !important; transform:none !important; filter:grayscale(10%); }
+
+/* emoji cake styling */
+.emoji-cake{
+  font-size: 140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:260px;
+  line-height:1;
+}
+
+.secret-message p{margin:8px 0;color:var(--muted);font-size:1rem;text-align:center}
+
+@media (max-width:520px){
+  .emoji-cake{font-size:96px;height:180px}
+  .secret-message p{font-size:0.95rem}
+}
+
+.card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg2), #3d0042);
+  transform: rotateY(180deg);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.secret-message {
+  font-size: 1.5em;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(178,135,255,0.5);
+  text-align: center;
+}
+
+/* removed love meter styles (love meter feature removed) */
+
+/* Sparkle effects */
+.sparkles {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sparkle {
+  position: absolute;
+  background: white;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  animation: sparkle 0.8s linear forwards;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1) rotate(180deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.btn.magic {
+  background: linear-gradient(90deg, #ff69b4, #8a2be2, #ff69b4);
+  background-size: 200% 100%;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* animated hearts container */
+#hearts{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:floatUp linear both;
+  transform-origin:center bottom;
+  will-change:transform,opacity;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(0.8);opacity:0}
+  10%{opacity:1}
+  100%{transform:translateY(-120vh) scale(1.3);opacity:0}
+}
+
+/* responsive */
+@media (max-width:520px){
+  .header h1{font-size:1.5rem}
+  .big{font-size:1rem}
+}
